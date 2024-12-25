@@ -58,7 +58,9 @@ tasks {
         from({
             configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
         })
+       manifest { attributes["Main-Class"] = "com.codersee.ApplicationKt" }
     }
+
 
     // Добавляем задачу fatJar как зависимость от сборки
     named("build") {
