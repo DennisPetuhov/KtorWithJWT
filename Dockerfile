@@ -1,5 +1,5 @@
 # Этап сборки
-FROM gradle:8.3-jdk17 AS builder
+FROM gradle:8.10-alpine AS builder
 
 WORKDIR /app
 COPY . .
