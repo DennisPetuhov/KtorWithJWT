@@ -8,7 +8,7 @@ import io.ktor.server.auth.jwt.*
 fun Application.configureSecurity(
   jwtService: JwtService
 ) {
-  authentication {
+  authentication( {
     jwt {
       realm = jwtService.realm
       verifier(jwtService.jwtVerifier)
@@ -26,6 +26,5 @@ fun Application.configureSecurity(
         jwtService.customValidator(credential)
       }
     }
-  }
+  })
 }
-

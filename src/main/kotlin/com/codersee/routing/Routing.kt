@@ -5,7 +5,7 @@ import com.codersee.service.UserService
 import io.ktor.server.application.*
 import io.ktor.server.routing.*
 
-fun Application.configureRouting(
+fun Application.itemRouting(
   jwtService: JwtService,
   userService: UserService
 ) {
