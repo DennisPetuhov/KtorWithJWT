@@ -26,9 +26,6 @@ application {
 
 repositories {
     mavenCentral()
-    maven {
-        url = uri("https://repo.spring.io/release")
-    }
 }
 
 //configurations {
@@ -36,6 +33,13 @@ repositories {
 //}
 
 dependencies {
+
+    dependencies {
+        implementation("io.ktor:ktor-serialization:2.0.0")
+        implementation("io.ktor:ktor-serialization-kotlinx-json:2.0.0")
+    }
+
+
     implementation("io.ktor:ktor-server-auth-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-auth-jwt-jvm:$ktor_version")
@@ -43,6 +47,8 @@ dependencies {
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
+
+    implementation("org.postgresql:postgresql:42.7.4")
 
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")

@@ -13,9 +13,9 @@ object MyDatabase {
 
     fun connect() {
         // Замените URL, имя пользователя и пароль на ваши актуальные данные
-        val url = "jdbc:postgresql://dpg-ctmibk5umphs73dfijhg-a:5432/my_ktor_db"
-        val user = "denis"
-        val password = "fORtJznZxAap4k6rXpMICk9jA6fyaYDW"
+        val url = "jdbc:postgresql://ep-summer-hat-a2pvv7w8.eu-central-1.aws.neon.tech/ktor_db?sslmode=require"
+        val user = "ktor_db_owner"
+        val password = "yX2C4ugGZWMn"
 
         connection = DriverManager.getConnection(url, user, password)
         dslContext = DSL.using(connection, SQLDialect.POSTGRES)

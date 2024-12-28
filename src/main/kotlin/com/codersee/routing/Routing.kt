@@ -10,6 +10,9 @@ fun Application.itemRouting(
   userService: UserService
 ) {
   routing {
+    route("/api/item") {
+      dataBaseItemRouting()
+    }
 
     route("/api/auth") {
       authRoute(jwtService)
