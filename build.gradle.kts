@@ -33,13 +33,6 @@ repositories {
 //}
 
 dependencies {
-
-    dependencies {
-        implementation("io.ktor:ktor-serialization:2.0.0")
-        implementation("io.ktor:ktor-serialization-kotlinx-json:2.0.0")
-    }
-
-
     implementation("io.ktor:ktor-server-auth-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-auth-jwt-jvm:$ktor_version")
