@@ -1,21 +1,31 @@
 package com.codersee.repository
 
+import com.codersee.dataBase.MyDatabase
 import com.codersee.model.User
-import java.util.*
+import org.jooq.impl.DSL
 
 class UserRepository {
+    val myDataBaseContext = MyDatabase.getContext()
 
-  private val users = mutableListOf<User>()
+    fun findAll(): List<User> =
+        myDataBaseContext.select().from("users").fetch().into(User::class.java)
 
-  fun findAll(): List<User> =
-    users
+    fun findById(id: Int): User? =
+        myDataBaseContext.select().from("users")
+            .where(DSL.field("id").eq(id))
+            .fetchOne()
+            ?.into(User::class.java)
 
-  fun findById(id: UUID): User? =
-    users.firstOrNull { it.id == id }
+    fun findByUsername(username: String): User? =
+        myDataBaseContext.select().from("public.users")
+            .where(DSL.field("username").eq(username))
+            .fetchOne()
+            ?.into(User::class.java)
 
-  fun findByUsername(username: String): User? =
-    users.firstOrNull { it.username == username }
-
-  fun save(user: User): Boolean =
-    users.add(user)
+    fun save(user: User): Boolean =
+        myDataBaseContext.insertInto(DSL.table("users"))
+            .set(DSL.field("id"), user.id)
+            .set(DSL.field("username"), user.username)
+            .set(DSL.field("password"), user.password)
+            .execute() > 0
 }

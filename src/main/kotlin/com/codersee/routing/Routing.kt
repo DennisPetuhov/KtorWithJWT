@@ -11,7 +11,7 @@ fun Application.itemRouting(
 ) {
   routing {
     route("/api/item") {
-      dataBaseItemRouting()
+      dataBaseItemRouting(userService)
     }
 
     route("/api/auth") {

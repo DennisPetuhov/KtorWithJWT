@@ -21,5 +21,4 @@ fun Route.authRoute(jwtService: JwtService) {
       message = HttpStatusCode.Unauthorized
     )
   }
-
 }

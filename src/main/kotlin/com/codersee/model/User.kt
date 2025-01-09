@@ -1,9 +1,12 @@
 package com.codersee.model
 
-import java.util.UUID
+import com.codersee.util.Item
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class User(
-  val id: UUID,
-  val username: String,
-  val password: String
+    val id: Int? = null,
+    val username: String,
+    val password: String,
+    val itemList: List<Item> = emptyList()
 )
